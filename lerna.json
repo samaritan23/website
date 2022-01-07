@@ -1,12 +1,6 @@
 {
 	"npmClient": "yarn",
-	"packages": [
-		"site/**",
-		"cms/**",
-		"search/cloudflare/**",
-		"search/puppeteer/**",
-		"webhooks/strapi/**"
-	],
+	"packages": ["site/**", "search/cloudflare/**", "search/puppeteer/**"],
 	"version": "2.4.0",
 	"useWorkspaces": false
 }
