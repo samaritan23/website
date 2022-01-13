@@ -19,7 +19,7 @@ jobs:
             - name: Setup Node
               uses: actions/setup-node@v2
               with:
-                  node-version: '14'
+                  node-version: '16'
 
             - name: Restore Node_Modules # this step improves the yarn installation of node_modules by a significant amount
               id: restore-node-modules
