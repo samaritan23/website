@@ -1,6 +1,6 @@
-import { FC, Fragment } from 'react';
+import { ServerStyleSheets as MaterialUiServerStyleSheets } from '@mui/styles';
 import NextDocument, { DocumentContext } from 'next/document';
-import { ServerStyleSheets as MaterialUiServerStyleSheets } from '@material-ui/core/styles';
+import { FC, Fragment } from 'react';
 
 export default class Document extends NextDocument {
 	static async getInitialProps(ctx: DocumentContext) {

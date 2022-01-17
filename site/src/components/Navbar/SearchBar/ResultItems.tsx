@@ -1,7 +1,7 @@
-import NextLink from 'next/link';
-import { Grid, Theme, makeStyles } from '@material-ui/core';
-
 import type { SearchResultType } from '@/types/index';
+import { Grid, Theme } from '@mui/material';
+import { makeStyles } from '@mui/styles';
+import NextLink from 'next/link';
 
 const useStyles = makeStyles((theme: Theme) => ({
 	resultBox: {

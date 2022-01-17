@@ -1,18 +1,18 @@
+import {
+	EmailOutlined as EmailOutlinedIcon,
+	Facebook as FacebookIcon,
+	Instagram as InstagramIcon,
+	LinkedIn as LinkedInIcon,
+	LocationOnOutlined as LocationOnOutlinedIcon,
+	PhoneEnabled as PhoneEnabledIcon,
+	Twitter as TwitterIcon,
+} from '@mui/icons-material';
+import { Grid } from '@mui/material';
+import { makeStyles } from 'tss-react/mui';
 import { Timeline } from 'react-twitter-widgets';
 import styles from './Footer.module.css';
-import { makeStyles, Grid } from '@material-ui/core';
 
-import {
-	Facebook as FacebookIcon,
-	Twitter as TwitterIcon,
-	LinkedIn as LinkedInIcon,
-	Instagram as InstagramIcon,
-	LocationOnOutlined as LocationOnOutlinedIcon,
-	EmailOutlined as EmailOutlinedIcon,
-	PhoneEnabled as PhoneEnabledIcon,
-} from '@material-ui/icons';
-
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles()((theme) => ({
 	root: {
 		flexGrow: 1,
 	},
@@ -24,7 +24,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function Home() {
-	const classes = useStyles();
+	const { classes } = useStyles();
 	return (
 		<>
 			<footer

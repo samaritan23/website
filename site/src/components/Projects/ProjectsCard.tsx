@@ -1,19 +1,18 @@
+import type { ProjectDataType } from '@/types/index';
+import { GitHub as GitHubIcon, Person as PersonIcon } from '@mui/icons-material';
 import {
-	makeStyles,
-	Grid,
+	Button,
 	Card,
 	CardActionArea,
 	CardActions,
 	CardContent,
 	CardMedia,
+	Grid,
 	Typography,
-	Button,
-} from '@material-ui/core';
-import { GitHub as GitHubIcon, Person as PersonIcon } from '@material-ui/icons';
+} from '@mui/material';
+import { makeStyles } from 'tss-react/mui';
 
-import type { ProjectDataType } from '@/types/index';
-
-const useStyles = makeStyles({
+const useStyles = makeStyles()({
 	root: {
 		maxWidth: 345,
 	},
@@ -23,7 +22,7 @@ const useStyles = makeStyles({
 });
 
 export default function ProjectsCard({ project }: IProject) {
-	const classes = useStyles();
+	const { classes } = useStyles();
 
 	return (
 		<>

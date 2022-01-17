@@ -1,14 +1,12 @@
-import type { GetStaticProps } from 'next';
-
-import { makeStyles, Grid } from '@material-ui/core';
-
 import Layout from '@/components/Layout';
 import ProjectsCard, { IProjects } from '@/components/Projects/ProjectsCard';
 import fetchProjects from '@/lib/staticData/projects';
-
 import styles from '@/styles/projects.module.css';
+import { Grid } from '@mui/material';
+import { makeStyles } from 'tss-react/mui';
+import type { GetStaticProps } from 'next';
 
-const useStyles = makeStyles({
+const useStyles = makeStyles()(() => ({
 	root: {
 		flexGrow: 1,
 		marginTop: '3rem',
@@ -25,10 +23,10 @@ const useStyles = makeStyles({
 		marginLeft: 'auto',
 		marginBottom: '10 px',
 	},
-});
+}));
 
 export default function Home({ projects }: IProjects) {
-	const classes = useStyles();
+	const { classes } = useStyles();
 
 	return (
 		<>

@@ -1,14 +1,12 @@
+import styles from '@/styles/members.module.css';
 import type { MemberDataType } from '@/types/index';
-
 import {
+	Facebook as FacebookIcon,
 	GitHub as GitHubIcon,
-	Twitter as TwitterIcon,
 	Language as LanguageIcon,
 	LinkedIn as LinkedInIcon,
-	Facebook as FacebookIcon,
-} from '@material-ui/icons';
-
-import styles from '@/styles/members.module.css';
+	Twitter as TwitterIcon,
+} from '@mui/icons-material';
 import Searchable from '../Searchable';
 
 export default function MembersUnderDomain(members: Array<MemberDataType>, role: string) {

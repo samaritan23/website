@@ -1,8 +1,8 @@
-import { Grid, makeStyles } from '@material-ui/core';
-
 import styles from '@/styles/intro.module.css';
+import { Grid } from '@mui/material';
+import { makeStyles } from 'tss-react/mui';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles()((theme) => ({
 	root: {
 		flexGrow: 1,
 		marginTop: '3rem',
@@ -16,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function Intro() {
-	const classes = useStyles();
+	const { classes } = useStyles();
 	return (
 		<>
 			<Grid container className={classes.root}>

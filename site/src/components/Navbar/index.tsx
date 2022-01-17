@@ -1,9 +1,7 @@
 import styles from '@/styles/navbar.module.css';
-
-import { AppBar, Toolbar } from '@material-ui/core';
-
-import MobileNavbar from './MobileNavbar';
+import { AppBar, Toolbar } from '@mui/material';
 import LaptopNavbar from './LaptopNavbar';
+import MobileNavbar from './MobileNavbar';
 
 const Navbar = () => {
 	return (

@@ -1,20 +1,18 @@
-import { useEffect, useState } from 'react';
-import { Theme, createStyles, makeStyles } from '@material-ui/core/styles';
-import { Box, Grid } from '@material-ui/core';
-
+import { cancelOnUnMount, getSearchResults } from '@/lib/dynamicData/search';
 import type { SearchResultType } from '@/types/index';
-import { getSearchResults, cancelOnUnMount } from '@/lib/dynamicData/search';
+import { Box, Grid } from '@mui/material';
+import { Theme } from '@mui/material/styles';
+import { makeStyles } from 'tss-react/mui';
+import { useEffect, useState } from 'react';
 import ResultItems from './ResultItems';
 
-const useStyles = makeStyles((theme: Theme) =>
-	createStyles({
-		dropdown: {
-			position: 'absolute',
-			marginTop: theme.spacing(1),
-			left: theme.spacing(-1),
-		},
-	})
-);
+const useStyles = makeStyles()((theme: Theme) => ({
+	dropdown: {
+		position: 'absolute',
+		marginTop: theme.spacing(1),
+		left: theme.spacing(-1),
+	},
+}));
 
 const useKeyPress = function (targetKey: string) {
 	const [keyPressed, setKeyPressed] = useState(false);
@@ -45,7 +43,7 @@ const useKeyPress = function (targetKey: string) {
 };
 
 export default function ResultsContainer({ searchText }: IResultProps) {
-	const classes = useStyles();
+	const { classes } = useStyles();
 	const [results, setResults] = useState<SearchResultType[]>([]);
 	const downPress = useKeyPress('ArrowDown');
 	const upPress = useKeyPress('ArrowUp');
@@ -85,7 +83,7 @@ export default function ResultsContainer({ searchText }: IResultProps) {
 			<Grid
 				container
 				direction="column"
-				justify="flex-start"
+				justifyContent="flex-start"
 				alignItems="flex-start"
 				spacing={1}>
 				<ResultItems results={results} cursor={cursor} />

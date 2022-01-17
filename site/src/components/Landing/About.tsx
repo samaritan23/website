@@ -1,6 +1,7 @@
-import { makeStyles, Card, CardContent, Typography, Grid, Container } from '@material-ui/core';
+import { Card, CardContent, Container, Grid, Typography } from '@mui/material';
+import { makeStyles } from 'tss-react/mui';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles()((theme) => ({
 	eventContainer: {
 		paddingTop: theme.spacing(3),
 		paddingBottom: theme.spacing(3),
@@ -11,7 +12,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function About() {
-	const classes = useStyles();
+	const { classes } = useStyles();
 	return (
 		<Container maxWidth="lg" className={classes.eventContainer}>
 			<Grid container spacing={3}>

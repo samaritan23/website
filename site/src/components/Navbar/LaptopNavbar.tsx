@@ -1,13 +1,13 @@
-import NextLink from 'next/link';
-import NextImage from 'next/image';
-import dynamic from 'next/dynamic';
-
 // import { GoogleAuthLogin } from '@/components/Navbar/AuthProvider';
 import { externalUrls, internalUrls } from '@/lib/urls';
-
-import { makeStyles, Typography, Box, Grid, Link } from '@material-ui/core';
 import styles from '@/styles/navbar.module.css';
-import CallMadeIcon from '@material-ui/icons/CallMade';
+import CallMadeIcon from '@mui/icons-material/CallMade';
+import { Box, Grid, Link, Typography } from '@mui/material';
+import { makeStyles } from 'tss-react/mui';
+import dynamic from 'next/dynamic';
+import NextImage from 'next/image';
+import NextLink from 'next/link';
+
 const SearchBar = dynamic(() => import('@/components/Navbar/SearchBar'), { ssr: false });
 
 const backHoverStyles = {
@@ -16,7 +16,7 @@ const backHoverStyles = {
 	transition: 'all 0.04s linear',
 };
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles()((theme) => ({
 	divider: {
 		margin: theme.spacing(0, 0.75),
 	},
@@ -33,7 +33,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function LaptopNavbar() {
-	const classes = useStyles();
+	const { classes } = useStyles();
 
 	return (
 		<Grid container>
@@ -58,7 +58,7 @@ export default function LaptopNavbar() {
 				container
 				alignItems="center"
 				spacing={3}
-				justify="flex-end"
+				justifyContent="flex-end"
 				className={styles.nav}>
 				<Grid item className={classes.backHover}>
 					<NextLink href={internalUrls.team}>

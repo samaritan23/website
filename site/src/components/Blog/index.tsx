@@ -1,7 +1,6 @@
-import SingleBlogCard from './post';
 import type { BlogPostType } from '@/types/index';
-
-import { Grid } from '@material-ui/core';
+import { Grid } from '@mui/material';
+import SingleBlogCard from './post';
 
 export default function Blogs({ blogPosts }: IBlogsProps) {
 	return (

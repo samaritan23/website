@@ -1,18 +1,23 @@
-import type { ReactNode } from 'react';
-import Head from 'next/head';
-
-import { createMuiTheme, ThemeProvider } from '@material-ui/core';
-import Navbar from '@/components/Navbar';
 import DiscordSection from '@/components/Layout/DiscordSection';
+import { createTheme } from '@mui/material/styles';
 import Footer from '@/components/Layout/Footer';
+import Navbar from '@/components/Navbar';
 import PaperParticles from '@/components/Particles/Papers';
+import { ThemeProvider, Theme, StyledEngineProvider } from '@mui/material/styles';
+import Head from 'next/head';
+import type { ReactNode } from 'react';
+
+declare module '@mui/material/styles' {
+	//   eslint-disable-next-line @typescript-eslint/no-empty-interface
+	interface DefaultTheme extends Theme {}
+}
 
 interface IProps {
 	children: ReactNode;
 	pageName: string;
 }
 
-const theme = createMuiTheme({
+const theme = createTheme({
 	typography: {
 		fontFamily: ['Montserrat', 'Roboto'].join(','),
 	},
@@ -26,15 +31,17 @@ export default function Layout({ children, pageName }: IProps) {
 				<Favicons />
 				<link rel="manifest" href="/site.webmanifest" crossOrigin="use-credentials" />
 			</Head>
-			<ThemeProvider theme={theme}>
-				<Navbar />
-				{children}
-				<DiscordSection />
-				<div style={{ position: 'relative' }}>
-					<PaperParticles />
-					<Footer />
-				</div>
-			</ThemeProvider>
+			<StyledEngineProvider injectFirst>
+				<ThemeProvider theme={theme}>
+					<Navbar />
+					{children}
+					<DiscordSection />
+					<div style={{ position: 'relative' }}>
+						<PaperParticles />
+						<Footer />
+					</div>
+				</ThemeProvider>
+			</StyledEngineProvider>
 		</>
 	);
 }

@@ -1,8 +1,9 @@
 import type { BannerDataType } from '@/types/index';
 
-import { makeStyles, Container, Paper, Typography, Grid, Link } from '@material-ui/core';
+import { Container, Paper, Typography, Grid, Link, Theme } from '@mui/material';
+import { makeStyles } from 'tss-react/mui';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles()((theme: Theme) => ({
 	mainFeaturedPost: {
 		position: 'relative',
 		color: theme.palette.common.white,
@@ -30,7 +31,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function Banner(props: BannerPropsType) {
-	const classes = useStyles();
+	const { classes } = useStyles();
 	const { title, link, eye_catcher, image } = props;
 
 	return (

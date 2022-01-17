@@ -1,45 +1,37 @@
 import { capitalizeEachWord, getReadableNameFromDomainUpperCased } from '@/lib/text';
-import {
-	createStyles,
-	makeStyles,
-	Card,
-	CardContent,
-	CardMedia,
-	Typography,
-} from '@material-ui/core';
 import type { DataImageType } from '@/types/index';
+import { Card, CardContent, CardMedia, Typography } from '@mui/material';
+import { makeStyles } from 'tss-react/mui';
 
-const useStyles = makeStyles((theme) =>
-	createStyles({
-		root: {
-			display: 'flex',
-			margin: theme.spacing(2, 0),
-			width: '100%',
-			height: 225,
-			fontStyle: 'Spartan',
-		},
-		details: {
-			display: 'flex',
-			flexDirection: 'column',
-		},
-		content: {
-			height: '100%',
-			textAlign: 'center',
-			display: 'flex',
-			flexDirection: 'column',
-			justifyContent: 'center',
-			alignItems: 'center',
-		},
-		cover: {
-			width: 225,
-		},
-	})
-);
+const useStyles = makeStyles()((theme) => ({
+	root: {
+		display: 'flex',
+		margin: theme.spacing(2, 0),
+		width: '100%',
+		height: 225,
+		fontStyle: 'Spartan',
+	},
+	details: {
+		display: 'flex',
+		flexDirection: 'column',
+	},
+	content: {
+		height: '100%',
+		textAlign: 'center',
+		display: 'flex',
+		flexDirection: 'column',
+		justifyContent: 'center',
+		alignItems: 'center',
+	},
+	cover: {
+		width: 225,
+	},
+}));
 
 export default function ViewCard({ name, domain, image, index }: IViewCardProps) {
 	const transform =
 		index % 2 === 0 ? 'skewX(-6.5deg) translateX(-15px)' : 'skewX(6.5deg) translateX(15px)';
-	const classes = useStyles();
+	const { classes } = useStyles();
 
 	const CMedia = () => (
 		<CardMedia

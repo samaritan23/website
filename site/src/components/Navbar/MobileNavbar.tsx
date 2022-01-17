@@ -1,31 +1,28 @@
-import NextLink from 'next/link';
-import { useState } from 'react';
-
 // import { GoogleAuthLogin } from '@/components/Navbar/AuthProvider';
 import { externalUrls, internalUrls } from '@/lib/urls';
-
 import {
-	makeStyles,
-	Typography,
-	IconButton,
+	Book as BookIcon,
+	Contacts as ContactsIcon,
+	EmojiEvents as EmojiEventsIcon,
+	Group as GroupIcon,
+	Home as HomeIcon,
+	Info as InfoIcon,
+	LibraryBooks as LibraryBooksIcon,
+	Menu as MenuIcon,
+} from '@mui/icons-material';
+import {
+	Box,
 	Drawer,
+	IconButton,
 	List,
 	ListItem,
 	ListItemIcon,
 	ListItemText,
-	Box,
-} from '@material-ui/core';
-
-import {
-	Group as GroupIcon,
-	Menu as MenuIcon,
-	Home as HomeIcon,
-	Contacts as ContactsIcon,
-	Info as InfoIcon,
-	LibraryBooks as LibraryBooksIcon,
-	Book as BookIcon,
-	EmojiEvents as EmojiEventsIcon,
-} from '@material-ui/icons';
+	Typography,
+} from '@mui/material';
+import { makeStyles } from 'tss-react/mui';
+import NextLink from 'next/link';
+import { useState } from 'react';
 
 const backHoverStyles = {
 	backgroundColor: '#d9d9d9',
@@ -33,10 +30,10 @@ const backHoverStyles = {
 	transition: 'all 0.04s linear',
 };
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles()((theme) => ({
 	navToggle: {
 		display: 'none',
-		[theme.breakpoints.down('sm')]: {
+		[theme.breakpoints.down('lg')]: {
 			display: 'block',
 		},
 	},
@@ -49,11 +46,11 @@ const useStyles = makeStyles((theme) => ({
 export default function MobileNavbar() {
 	const [navState, navToggle] = useState(false);
 
-	const classes = useStyles();
+	const { classes } = useStyles();
 
 	return (
 		<Box>
-			<IconButton onClick={() => navToggle(true)} className={classes.navToggle}>
+			<IconButton onClick={() => navToggle(true)} className={classes.navToggle} size="large">
 				<MenuIcon />
 			</IconButton>
 			<Drawer anchor="left" open={navState} onClose={() => navToggle(false)}>

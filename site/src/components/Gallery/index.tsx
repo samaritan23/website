@@ -1,30 +1,27 @@
-import useSWR from 'swr';
+import fetchMembersRandomized from '@/lib/dynamicData/members';
+import styles from '@/styles/gallery.module.css';
+import { Box } from '@mui/material';
+import { makeStyles } from 'tss-react/mui';
 import type { CSSProperties } from 'react';
-
+import useSWR from 'swr';
 import ViewCard from './card';
 import DomainsImage from './domainsImage';
-import fetchMembersRandomized from '@/lib/dynamicData/members';
 
-import { createStyles, makeStyles, Box } from '@material-ui/core';
-import styles from '@/styles/gallery.module.css';
-
-const useStyles = makeStyles((theme) =>
-	createStyles({
-		root: {
-			position: 'relative',
-			height: '80vh',
-			width: '100vw',
-			overflow: 'hidden',
-			marginBottom: theme.spacing(5),
-		},
-		buildingWith: {
-			position: 'relative',
-			height: '100%',
-			width: '100%',
-			marginTop: theme.spacing(2),
-		},
-	})
-);
+const useStyles = makeStyles()((theme) => ({
+	root: {
+		position: 'relative',
+		height: '80vh',
+		width: '100vw',
+		overflow: 'hidden',
+		marginBottom: theme.spacing(5),
+	},
+	buildingWith: {
+		position: 'relative',
+		height: '100%',
+		width: '100%',
+		marginTop: theme.spacing(2),
+	},
+}));
 
 export default function Gallery() {
 	const { data: members, error } = useSWR('all_members', fetchMembersRandomized, {
@@ -32,7 +29,7 @@ export default function Gallery() {
 		compare: (a, b) => a?.length === b?.length,
 		revalidateOnFocus: false,
 	});
-	const classes = useStyles();
+	const { classes } = useStyles();
 
 	const translateStyles =
 		members &&

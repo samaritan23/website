@@ -1,20 +1,19 @@
+import Searchable from '@/components/Searchable';
+import type { BlogPostType } from '@/types/index';
+import { CalendarToday as CalendarTodayIcon, Person as PersonIcon } from '@mui/icons-material';
 import {
-	makeStyles,
 	Card,
-	CardMedia,
+	CardActions,
 	CardContent,
-	Typography,
+	CardMedia,
+	Divider,
 	Grid,
 	Link,
-	CardActions,
-	Divider,
-} from '@material-ui/core';
-import { Person as PersonIcon, CalendarToday as CalendarTodayIcon } from '@material-ui/icons';
+	Typography,
+} from '@mui/material';
+import { makeStyles } from 'tss-react/mui';
 
-import type { BlogPostType } from '@/types/index';
-import Searchable from '@/components/Searchable';
-
-const styles = makeStyles((muiBaseTheme) => ({
+const styles = makeStyles()((muiBaseTheme) => ({
 	grid: {
 		marginTop: '20px',
 		minHeight: '391px',
@@ -58,7 +57,7 @@ const styles = makeStyles((muiBaseTheme) => ({
 }));
 
 export default function SingleBlogCard({ post }: ISingleBlogPostProps) {
-	const classes = styles();
+	const { classes } = styles();
 
 	return (
 		<Grid xs={12} sm={12} lg={4} className={classes.grid}>
@@ -88,7 +87,7 @@ export default function SingleBlogCard({ post }: ISingleBlogPostProps) {
 						<Divider className={classes.divider} />
 						<CardActions
 							style={{ paddingLeft: '1.5625rem', paddingRight: '1.5625rem' }}>
-							<Grid container justify="space-between">
+							<Grid container justifyContent="space-between">
 								<Grid item>
 									<PersonIcon />
 									<Typography

@@ -1,9 +1,9 @@
-import { makeStyles, Grid } from '@material-ui/core';
-
 import Searchable from '@/components/Searchable';
 import styles from '@/styles/landing.module.css';
+import { Grid } from '@mui/material';
+import { makeStyles } from 'tss-react/mui';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles()(() => ({
 	root: {
 		flexGrow: 1,
 		marginTop: '3rem',
@@ -17,7 +17,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function Description() {
-	const classes = useStyles();
+	const { classes } = useStyles();
 	return (
 		<Grid container className={classes.root}>
 			<Grid item md={6} xs={12} className={styles.container}>
